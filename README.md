@@ -10,6 +10,9 @@
   <img src="https://img.shields.io/github/v/release/JoseNSoler/PracticaMVC?style=flat-square"
 </p>   
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/59320487/158107228-ac0bd735-e0e9-4b3c-9191-f9d573fef41c.jpg"
+</p>  
 
 
 ## Descripcion General
