@@ -12,9 +12,14 @@
 
 
 
+## Video explicativo
 
+En el siguiente enlace de youtube se encuentra el video explicativo con los procesos llevados para idear, modelar e implementar 
+esta propuesta para un concesionario de autos marca BMW
 
-## Descripcion General
+https://youtu.be/avMvm36nq3M
+
+#escripcion General
 
 **Se puede guardar la imagen o abrirla en una nueva pestaña para poder verla en mejor resolucion**
 
