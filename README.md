@@ -1,4 +1,4 @@
-# Concesionario de autos BMW - Planteacion modelo de negocio usando DDD (Domain Driven Design) - **Creando actualmente mas metodos con sus test
+# Concesionario de autos BMW - Planteacion modelo de negocio usando DDD (Domain Driven Design) / Con video explicativo en youtube - **Creando actualmente mas metodos con sus test
 
 <p align="center">
 <img src="https://www.sofka.com.co/wp-content/uploads/2021/02/sofkau-logo-horizontal.png">
