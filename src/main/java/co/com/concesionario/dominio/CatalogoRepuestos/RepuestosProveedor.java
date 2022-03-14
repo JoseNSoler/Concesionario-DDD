@@ -16,9 +16,9 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.domain.generic.Entity;
 
 public class RepuestosProveedor extends Entity<RepuestoProveedorID>{
-    Referencia referencia;
-    Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales;
-    List<RepuestosProveedorTecnomecanicos> repuestosProveedorTecnomecanicos;
+    private Referencia referencia;
+    private Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales;
+    private List<RepuestosProveedorTecnomecanicos> repuestosProveedorTecnomecanicos;
 
 
     public RepuestosProveedor(RepuestoProveedorID entityId, Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales) {
