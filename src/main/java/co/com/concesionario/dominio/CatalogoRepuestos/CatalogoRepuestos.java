@@ -1,0 +1,58 @@
+package co.com.concesionario.dominio.CatalogoRepuestos;
+
+import co.com.concesionario.dominio.CatalogoRepuestos.eventos.*;
+import co.com.concesionario.dominio.CatalogoRepuestos.valor.CatalogoRepuestosID;
+import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestoProveedorID;
+import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorAdicionales;
+import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorReferencia;
+import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+
+import java.util.List;
+import java.util.Map;
+
+public class CatalogoRepuestos extends AggregateEvent<CatalogoRepuestosID> {
+    protected RepuestosProveedor repuestosProveedor;
+    
+
+    public CatalogoRepuestos(CatalogoRepuestosID catalogoRepuestosID){
+        super(catalogoRepuestosID);
+        appendChange(new CatalogoRepuestosCreado(catalogoRepuestosID)).apply();
+        subscribe(new CatalogoRepuestosEventChange(this));
+    }
+
+    public static CatalogoRepuestos from(CatalogoRepuestosID catalogoRepuestosID, List<DomainEvent> events){
+        var catalogoRepuestos = new CatalogoRepuestos(catalogoRepuestosID);
+        events.forEach(catalogoRepuestos::applyEvent);
+        return catalogoRepuestos;
+    }
+
+
+    public void crearRepuestosProveedor(RepuestoProveedorID repuestoProveedorID, CatalogoRepuestosID catalogoRepuestosID){
+        appendChange(new RepuestosProveedorCreado(repuestoProveedorID, catalogoRepuestosID)).apply();
+    }
+
+    public void agregarRepuestosProveedorAdicionales(CatalogoRepuestosID catalogoRepuestosID, RepuestosProveedorAdicionales repuestosProveedorAdicionales,
+                                                     RepuestoProveedorID repuestoProveedorID, RepuestosProveedorReferencia repuestosProveedorReferencia){
+        appendChange(new RepuestosProveedorAdicionalesAgregado(catalogoRepuestosID, repuestosProveedorAdicionales, repuestoProveedorID, repuestosProveedorReferencia))
+                .apply();
+    }
+
+    public void crearVariosRepuestosProveedorAdicionales(RepuestoProveedorID repuestoProveedorID, CatalogoRepuestosID catalogoRepuestosID,
+                                                           Map<RepuestosProveedorReferencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales){
+        appendChange(new VariosAdicionalesRepuestosProveedorCreados(repuestoProveedorID, catalogoRepuestosID, repuestosProveedorAdicionales))
+                .apply();
+    }
+
+    public void modificarRepuestosProveedorAdicionalesPorReferencia(CatalogoRepuestosID catalogoRepuestosID, RepuestosProveedorAdicionales repuestosProveedorAdicionales,
+                                                                    RepuestoProveedorID repuestoProveedorID, RepuestosProveedorReferencia repuestosProveedorReferencia){
+        appendChange(new RepuestosProveedorAdicionalesPorReferenciaModificados(catalogoRepuestosID, repuestosProveedorAdicionales, repuestoProveedorID, repuestosProveedorReferencia))
+                .apply();
+    }
+
+
+
+    public RepuestosProveedor repuestosProveedor(){
+        return repuestosProveedor;
+    }
+}
