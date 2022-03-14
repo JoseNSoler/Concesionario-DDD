@@ -1,8 +1,13 @@
 package co.com.concesionario.dominio.AdministradorGeneral;
 
 import co.com.concesionario.dominio.AdministradorGeneral.valor.*;
+import co.com.concesionario.dominio.CatalogoRepuestos.CatalogoRepuestos;
+import co.com.concesionario.dominio.CatalogoRepuestos.valor.CatalogoRepuestosID;
 import co.com.concesionario.valorglobal.Adicionales;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+
+import java.util.List;
 
 public class AdministradorGeneral extends AggregateEvent<AdministradorGeneralID> {
 
@@ -28,6 +33,18 @@ public class AdministradorGeneral extends AggregateEvent<AdministradorGeneralID>
 
     public AdministradorGeneral(AdministradorGeneralID entityId) {
         super(entityId);
-
     }
+
+    public static AdministradorGeneral from(AdministradorGeneralID entityId, List<DomainEvent> events){
+        var administradorGeneral = new AdministradorGeneral(entityId);
+        events.forEach(administradorGeneral::applyEvent);
+        return administradorGeneral;
+    }
+
+
+
+
+
+
+
 }

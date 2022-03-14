@@ -27,6 +27,7 @@ class CrearCatalogoRepuestosUseCaseTest {
         // Act
 
         var events = UseCaseHandler.getInstance()
+
                 .syncExecutor(usecase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
