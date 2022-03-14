@@ -11,21 +11,19 @@ public class CrearAdministradoGeneralArgumentos extends Command {
     protected UsuarioID usuarioID;
     protected DireccionCompletaID direccionCompletaID;
     protected Pais pais;
-    protected NombresCompletosID nombresCompletosID;
-    protected Nombres nombre;
+
 
 
     public CrearAdministradoGeneralArgumentos(AdministradorGeneralID administradorGeneralID, Usuario usuario,
-                                              UsuarioID usuarioID, DireccionCompletaID direccionCompletaID, Pais pais,
-                                              NombresCompletosID nombresCompletosID, Nombres nombre) {
+                                              UsuarioID usuarioID, DireccionCompletaID direccionCompletaID, Pais pais
+                                              ) {
 
         this.administradorGeneralID = administradorGeneralID;
         this.usuario = usuario;
         this.usuarioID = usuarioID;
         this.direccionCompletaID = direccionCompletaID;
         this.pais = pais;
-        this.nombresCompletosID = nombresCompletosID;
-        this.nombre = nombre;
+
     }
 
 
@@ -41,13 +39,6 @@ public class CrearAdministradoGeneralArgumentos extends Command {
         return direccionCompletaID;
     }
 
-    public Nombres getNombre() {
-        return nombre;
-    }
-
-    public NombresCompletosID getNombresCompletosID() {
-        return nombresCompletosID;
-    }
 
     public Usuario getUsuario() {
         return usuario;

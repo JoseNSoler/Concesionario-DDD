@@ -15,20 +15,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class CrearAdministradorGeneralArgumentosUseCaseTest {
 
     @Test
-    void crearAdministradorGeneral(){
+    void crearAdministradorGeneralArgumentos(){
         // Arrange
-
+        UsuarioID usuarioID = UsuarioID.of("11Usuario");
         Nombres nombres = Nombres.of("larry", "di");
         AdministradorGeneralID administradorGeneralID = AdministradorGeneralID.of("AdministradorGeneral1");
         DireccionCompletaID direccionCompletaID = DireccionCompletaID.of("DIRECCION ID 1111");
         Pais pais = Pais.of("Colombia");
-        NombresCompletosID nombresCompletosID = NombresCompletosID.of("USUARIO111");
+        NombresCompletosID nombresCompletosID = NombresCompletosID.of("nombreUSUARIO111");
 
+        Usuario usuario = new Usuario(usuarioID, direccionCompletaID, pais, nombresCompletosID, nombres);
 
-        NombresCompletos nombresCompletos = new NombresCompletos(nombresCompletosID, nombres);
-
-
-        Usuario usuario = new Usuario()
 
         var command = new CrearAdministradorGeneral(administradorGeneralID);
 
@@ -49,5 +46,7 @@ class CrearAdministradorGeneralArgumentosUseCaseTest {
         Assertions.assertEquals("administradorgeneral.administradorgeneralcreado", event.type);
 
         Assertions.assertEquals("AdministradorGeneral1", event.getAdministradorGeneralID().value());
+
+        Assertions.assertEquals("", event.);
     }
 }

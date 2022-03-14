@@ -17,8 +17,7 @@ public class AdministradorGeneral extends AggregateEvent<AdministradorGeneralID>
     protected UsuarioID usuarioID;
     protected DireccionCompletaID direccionCompletaID;
     protected Pais pais;
-    protected NombresCompletosID nombresCompletosID;
-    protected Nombres nombre;
+
 
     public AdministradorGeneral(AdministradorGeneralID entityId) {
         super(entityId);
@@ -28,13 +27,13 @@ public class AdministradorGeneral extends AggregateEvent<AdministradorGeneralID>
 
     public AdministradorGeneral(AdministradorGeneralID entityId, Usuario usuario,
                                 UsuarioID usuarioID, DireccionCompletaID direccionCompletaID,
-                                Pais pais, Nombres nombre) {
+                                Pais pais) {
         this(entityId);
         this.usuario = usuario;
         this.usuarioID = usuarioID;
         this.direccionCompletaID = direccionCompletaID;
         this.pais = pais;
-        this.nombre = nombre;
+
 
     }
 
