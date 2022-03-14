@@ -13,7 +13,8 @@ public class CrearAdministradorGeneralUseCase extends UseCase<RequestCommand<Cre
 
         var command = input.getCommand();
 
-        var administradorGeneral = new AdministradorGeneral(command.getAdministradorGeneralID());
+        var administradorGeneral = new AdministradorGeneral(command.getAdministradorGeneralID()
+        );
 
         emit().onResponse(new ResponseEvents(administradorGeneral.getUncommittedChanges()));
 
