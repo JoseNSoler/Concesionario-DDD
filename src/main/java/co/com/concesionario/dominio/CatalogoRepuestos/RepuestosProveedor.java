@@ -10,19 +10,18 @@ import java.util.Map;
 
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestoProveedorID;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorAdicionales;
-import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorReferencia;
+import co.com.concesionario.valorglobal.Referencia;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorTecnomecanicos;
-import co.com.concesionario.valorglobal.Tecnomecanicos;
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.domain.generic.Entity;
 
 public class RepuestosProveedor extends Entity<RepuestoProveedorID>{
-    RepuestosProveedorReferencia repuestosProveedorReferencia;
-    Map<RepuestosProveedorReferencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales;
+    Referencia referencia;
+    Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales;
     List<RepuestosProveedorTecnomecanicos> repuestosProveedorTecnomecanicos;
 
 
-    public RepuestosProveedor(RepuestoProveedorID entityId, Map<RepuestosProveedorReferencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales) {
+    public RepuestosProveedor(RepuestoProveedorID entityId, Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales) {
         super(entityId);
         //TODO Auto-generated constructor stub
 
@@ -35,31 +34,35 @@ public class RepuestosProveedor extends Entity<RepuestoProveedorID>{
         super(entityId);
         //TODO Auto-generated constructor stub
 
-        this.repuestosProveedorAdicionales = new HashMap<RepuestosProveedorReferencia, RepuestosProveedorAdicionales>();
+        this.repuestosProveedorAdicionales = new HashMap<Referencia, RepuestosProveedorAdicionales>();
         this.repuestosProveedorTecnomecanicos = new ArrayList<>();
     }
 
 
 
-    public void modificarRepuestosProveedorAdicionalesPorReferencia(RepuestosProveedorAdicionales repuestosProveedorAdicionales, RepuestosProveedorReferencia repuestosProveedorReferencia){
+    public void modificarRepuestosProveedorAdicionalesPorReferencia(RepuestosProveedorAdicionales repuestosProveedorAdicionales,
+                                                                    Referencia referencia){
         try {
-            boolean condicion = this.repuestosProveedorAdicionales.containsKey(repuestosProveedorReferencia.value());
-            if(!condicion) {
-                throw new Exception();
-            } else{
-                this.repuestosProveedorAdicionales.put(repuestosProveedorReferencia, repuestosProveedorAdicionales);
+            boolean switcher = false;
+            boolean condicion = this.repuestosProveedorAdicionales.containsKey(referencia.value());
+            for(Referencia unidad : this.repuestosProveedorAdicionales.keySet()){
+                System.out.println(this.repuestosProveedorAdicionales.get(unidad).value().value().partesExternas());
+                if(unidad.value().equals(referencia.value())) switcher = true;
             }
+            if (switcher){
+                this.repuestosProveedorAdicionales.put(referencia, repuestosProveedorAdicionales);
+            } else throw new Exception();
 
         } catch (Exception e){
 
-            throw new BusinessException("",String.format("No existe Referencia en proveedores, con la referencia indicada == %s", repuestosProveedorReferencia.value()));
+            throw new BusinessException("",String.format("No existe Referencia en proveedores, con la referencia indicada == -%s-", referencia.value()));
         }
 
     }
 
 
-    public void agregarRepuestosProveedorAdicionales(RepuestosProveedorAdicionales repuestosProveedorAdicionales, RepuestosProveedorReferencia repuestosProveedorReferencia){
-        this.repuestosProveedorAdicionales.put(repuestosProveedorReferencia, repuestosProveedorAdicionales);
+    public void agregarRepuestosProveedorAdicionales(RepuestosProveedorAdicionales repuestosProveedorAdicionales, Referencia referencia){
+        this.repuestosProveedorAdicionales.put(referencia, repuestosProveedorAdicionales);
     }
 
 
@@ -81,7 +84,7 @@ public class RepuestosProveedor extends Entity<RepuestoProveedorID>{
 
 
 
-    public Map<RepuestosProveedorReferencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales() {
+    public Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales() {
         return repuestosProveedorAdicionales;
     }
 

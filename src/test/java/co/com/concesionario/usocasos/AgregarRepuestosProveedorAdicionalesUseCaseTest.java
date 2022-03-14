@@ -1,14 +1,13 @@
 package co.com.concesionario.usocasos;
 
 import co.com.concesionario.dominio.CatalogoRepuestos.comandos.AgregarRepuestosProveedorAdicionales;
-import co.com.concesionario.dominio.CatalogoRepuestos.comandos.CrearRepuestosProveedor;
 import co.com.concesionario.dominio.CatalogoRepuestos.eventos.CatalogoRepuestosCreado;
 import co.com.concesionario.dominio.CatalogoRepuestos.eventos.RepuestosProveedorAdicionalesAgregado;
 import co.com.concesionario.dominio.CatalogoRepuestos.eventos.RepuestosProveedorCreado;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.CatalogoRepuestosID;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestoProveedorID;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorAdicionales;
-import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorReferencia;
+import co.com.concesionario.valorglobal.Referencia;
 import co.com.concesionario.valorglobal.Adicionales;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -21,12 +20,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 
 
 @ExtendWith(MockitoExtension.class)
@@ -41,7 +35,7 @@ class AgregarRepuestosProveedorAdicionalesUseCaseTest {
         var catalogoRepuestosID = CatalogoRepuestosID.of("1Catalogo");
         var repuestosProveedorID = RepuestoProveedorID.of("1_1ProveedorRepuestoCC");
         var adicionales = Adicionales.of("partesExternasPrimera", "LLantasPrimeras");
-        var repuestosProveedorReferencia = RepuestosProveedorReferencia.of("2115");
+        var repuestosProveedorReferencia = Referencia.of("2115");
         var repuestosProveedorAdicionales = RepuestosProveedorAdicionales.of(adicionales);
 
 
@@ -95,7 +89,7 @@ class AgregarRepuestosProveedorAdicionalesUseCaseTest {
                         CatalogoRepuestosID.of("1Catologoz"),
                         RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasPrimera", "LLantasPrimeras")),
                         RepuestoProveedorID.of("1_1ProveedorRepuestoCC"),
-                        RepuestosProveedorReferencia.of("2115"))
+                        Referencia.of("2115"))
 
         );
     }

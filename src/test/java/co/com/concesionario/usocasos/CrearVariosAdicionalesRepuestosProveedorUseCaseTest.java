@@ -1,16 +1,12 @@
 package co.com.concesionario.usocasos;
 
-import co.com.concesionario.dominio.CatalogoRepuestos.comandos.AgregarRepuestosProveedorAdicionales;
-import co.com.concesionario.dominio.CatalogoRepuestos.comandos.CrearRepuestosProveedor;
 import co.com.concesionario.dominio.CatalogoRepuestos.comandos.CrearVariosAdicionalesRepuestosProveedor;
 import co.com.concesionario.dominio.CatalogoRepuestos.eventos.CatalogoRepuestosCreado;
-import co.com.concesionario.dominio.CatalogoRepuestos.eventos.RepuestosProveedorAdicionalesAgregado;
-import co.com.concesionario.dominio.CatalogoRepuestos.eventos.RepuestosProveedorCreado;
 import co.com.concesionario.dominio.CatalogoRepuestos.eventos.VariosAdicionalesRepuestosProveedorCreados;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.CatalogoRepuestosID;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestoProveedorID;
 import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorAdicionales;
-import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorReferencia;
+import co.com.concesionario.valorglobal.Referencia;
 import co.com.concesionario.valorglobal.Adicionales;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -36,10 +32,11 @@ class CrearVariosAdicionalesRepuestosProveedorUseCaseTest {
     void crearVariosRepuestosProoveedor(){
         // Arrange
 
-        var referencia1 = RepuestosProveedorReferencia.of("2020");
-        var referencia2 = RepuestosProveedorReferencia.of("2022");
-        var referencia3 = RepuestosProveedorReferencia.of("2024");
-        HashMap<RepuestosProveedorReferencia, RepuestosProveedorAdicionales> mapaRepuestosProveedorAdicional = new HashMap<RepuestosProveedorReferencia, RepuestosProveedorAdicionales>();
+        // Creacion mapa personalizado con RepuestosProoveedor adicionales
+        var referencia1 = Referencia.of("2020");
+        var referencia2 = Referencia.of("2022");
+        var referencia3 = Referencia.of("2024");
+        HashMap<Referencia, RepuestosProveedorAdicionales> mapaRepuestosProveedorAdicional = new HashMap<Referencia, RepuestosProveedorAdicionales>();
         mapaRepuestosProveedorAdicional.put(referencia1, RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasPrimera", "LLantasPrimeras")) );
         mapaRepuestosProveedorAdicional.put(referencia2, RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasSeg", "LLantasSegu")) );
         mapaRepuestosProveedorAdicional.put(referencia3, RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasTerfcera", "LLantasTercera")) );
@@ -81,15 +78,15 @@ class CrearVariosAdicionalesRepuestosProveedorUseCaseTest {
 
 
     private List<DomainEvent> history() {
-        Map<RepuestosProveedorReferencia, RepuestosProveedorAdicionales> mapaRepuestosProveedorAdicional = new HashMap<RepuestosProveedorReferencia, RepuestosProveedorAdicionales>();
-        mapaRepuestosProveedorAdicional.put(RepuestosProveedorReferencia.of("2020"), RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasPrimera", "LLantasPrimeras")) );
-        mapaRepuestosProveedorAdicional.put(RepuestosProveedorReferencia.of("2020"), RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasSeg", "LLantasSegu")) );
-        mapaRepuestosProveedorAdicional.put(RepuestosProveedorReferencia.of("2020"), RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasTerfcera", "LLantasTercera")) );
+        Map<Referencia, RepuestosProveedorAdicionales> mapaRepuestosProveedorAdicional = new HashMap<Referencia, RepuestosProveedorAdicionales>();
+        mapaRepuestosProveedorAdicional.put(Referencia.of("2020"), RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasPrimera", "LLantasPrimeras")) );
+        mapaRepuestosProveedorAdicional.put(Referencia.of("2020"), RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasSeg", "LLantasSegu")) );
+        mapaRepuestosProveedorAdicional.put(Referencia.of("2020"), RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasTerfcera", "LLantasTercera")) );
 
         return List.of(
                 new CatalogoRepuestosCreado(CatalogoRepuestosID.of("1Catologo")),
                 new VariosAdicionalesRepuestosProveedorCreados(RepuestoProveedorID.of("1_1ProveedorRepuestoCC"), CatalogoRepuestosID.of("1Catologo"),
-                        new HashMap<RepuestosProveedorReferencia, RepuestosProveedorAdicionales>(mapaRepuestosProveedorAdicional) )
+                        new HashMap<Referencia, RepuestosProveedorAdicionales>(mapaRepuestosProveedorAdicional) )
 
         );
     }

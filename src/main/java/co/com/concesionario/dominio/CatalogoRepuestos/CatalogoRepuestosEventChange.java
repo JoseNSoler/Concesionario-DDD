@@ -6,7 +6,6 @@ import co.com.sofka.domain.generic.EventChange;
 public class CatalogoRepuestosEventChange extends EventChange{
     public CatalogoRepuestosEventChange(CatalogoRepuestos catalogoRepuestos){
 
-
         apply((CatalogoRepuestosCreado event) -> {
 
         });
@@ -16,6 +15,9 @@ public class CatalogoRepuestosEventChange extends EventChange{
 
         });
 
+        apply((RepuestosProveedorAdicionalesPorReferenciaModificados event) -> {
+            catalogoRepuestos.repuestosProveedor.modificarRepuestosProveedorAdicionalesPorReferencia(event.getRepuestosProveedorAdicionales(), event.getRepuestosProveedorReferencia());
+        });
 
 
         apply((RepuestosProveedorCreado event) -> {
@@ -26,9 +28,7 @@ public class CatalogoRepuestosEventChange extends EventChange{
             catalogoRepuestos.repuestosProveedor.agregarRepuestosProveedorAdicionales(event.getRepuestosProveedorAdicionales(), event.getRepuestosProveedorReferencia());
         });
 
-        apply((RepuestosProveedorAdicionalesPorReferenciaModificados event) -> {
-            catalogoRepuestos.repuestosProveedor.modificarRepuestosProveedorAdicionalesPorReferencia(event.getRepuestosProveedorAdicionales(), event.getRepuestosProveedorReferencia());
-        });
+
 
 
     }
