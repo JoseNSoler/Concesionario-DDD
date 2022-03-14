@@ -38,9 +38,6 @@ https://youtu.be/avMvm36nq3M
   <img src="https://user-images.githubusercontent.com/59320487/158148335-bb0e30ba-cbbc-4d3a-9beb-c20aff7e451a.png"
 </p>   
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/59320487/158107228-ac0bd735-e0e9-4b3c-9191-f9d573fef41c.jpg"
-</p>  
 
 ## Usos de casos implementados
 
