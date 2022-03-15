@@ -6,44 +6,52 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 public class AdministradorGeneralArgumentosCreado extends DomainEvent {
     private final AdministradorGeneralID administradorGeneralID;
-    protected Usuario usuario;
-    protected UsuarioID usuarioID;
-    protected DireccionCompletaID direccionCompletaID;
-    protected Pais pais;
+
+    private final UsuarioID usuarioID;
+    private final Nombres nombres;
+    private final Pais pais;
 
 
-    public AdministradorGeneralArgumentosCreado(AdministradorGeneralID administradorGeneralID, Usuario usuario,
-                                                UsuarioID usuarioID, DireccionCompletaID direccionCompletaID, Pais pais
-                                                ){
-        super("administradorgeneral.administradorgeneralcreado");
+    private final DireccionCompletaID direccionCompletaID;
+    private final Nomenclatura nomenclatura;
+
+
+
+    public AdministradorGeneralArgumentosCreado(AdministradorGeneralID administradorGeneralID, UsuarioID usuarioID,
+                                                Nombres nombres, Pais pais,
+                                                DireccionCompletaID direccionCompletaID, Nomenclatura nomenclatura){
+        super("administradorgeneral.administradorgeneralargumentoscreado");
         this.administradorGeneralID = administradorGeneralID;
-        this.usuario = usuario;
         this.usuarioID = usuarioID;
-        this.direccionCompletaID = direccionCompletaID;
+        this.nombres = nombres;
         this.pais = pais;
 
+        this.direccionCompletaID = direccionCompletaID;
+        this.nomenclatura = nomenclatura;
     }
 
+    public UsuarioID usuarioID() {
+        return usuarioID;
+    }
 
-    public AdministradorGeneralID getAdministradorGeneralID() {
+    public AdministradorGeneralID administradorGeneralID() {
         return administradorGeneralID;
     }
 
-    public Pais getPais() {
+
+    public Pais pais() {
         return pais;
     }
 
-    public DireccionCompletaID getDireccionCompletaID() {
+    public Nombres nombres() {
+        return nombres;
+    }
+
+    public Nomenclatura nomenclatura() {
+        return nomenclatura;
+    }
+
+    public DireccionCompletaID direccionCompletaID() {
         return direccionCompletaID;
-    }
-
-
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public UsuarioID getUsuarioID() {
-        return usuarioID;
     }
 }

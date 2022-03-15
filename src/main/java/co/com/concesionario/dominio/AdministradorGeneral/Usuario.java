@@ -4,22 +4,22 @@ import co.com.concesionario.dominio.AdministradorGeneral.valor.*;
 import co.com.sofka.domain.generic.Entity;
 
 public class Usuario extends Entity<UsuarioID> {
-    private NombresCompletos nombresCompletos;
-    private DirrecionCompleta direccionCompleta;
+    private Nombres nombres;
+    private Pais pais;
 
-    public Usuario(UsuarioID entityId, DireccionCompletaID direccionCompletaID, Pais pais,
-                    NombresCompletosID nombresCompletosID, Nombres nombre ) {
+
+    public Usuario(UsuarioID entityId, Nombres nombres, Pais pais) {
         super(entityId);
-        this.direccionCompleta = new DirrecionCompleta(direccionCompletaID, pais);
-        this.nombresCompletos = new NombresCompletos(nombresCompletosID, nombre);
+        this.nombres = nombres;
+        this.pais = pais;
 
     }
 
-    public DirrecionCompleta direccionCompleta() {
-        return direccionCompleta;
+    public Nombres nombres() {
+        return nombres;
     }
 
-    public NombresCompletos nombresCompletos() {
-        return nombresCompletos;
+    public Pais pais() {
+        return pais;
     }
 }

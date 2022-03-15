@@ -1,5 +1,6 @@
 package co.com.concesionario.dominio.AdministradorGeneral;
 
+import co.com.concesionario.dominio.AdministradorGeneral.eventos.AdministradorGeneralArgumentosCreado;
 import co.com.concesionario.dominio.AdministradorGeneral.eventos.AdministradorGeneralCreado;
 import co.com.concesionario.dominio.AdministradorGeneral.valor.*;
 import co.com.concesionario.dominio.CatalogoRepuestos.CatalogoRepuestos;
@@ -15,28 +16,29 @@ public class AdministradorGeneral extends AggregateEvent<AdministradorGeneralID>
 
     protected Usuario usuario;
     protected UsuarioID usuarioID;
-    protected DireccionCompletaID direccionCompletaID;
+    protected Nombres nombres;
     protected Pais pais;
 
+
+    protected DireccionCompletaID direccionCompletaID;
+    protected DirrecionCompleta dirrecionCompleta;
+    protected Nomenclatura nomenclatura;
+
+
+
+    public AdministradorGeneral(AdministradorGeneralID entityId, UsuarioID usuarioID,
+                                Nombres nombres, Pais pais,
+                                DireccionCompletaID direccionCompletaID, Nomenclatura nomenclatura) {
+        this(entityId);
+        appendChange(new AdministradorGeneralArgumentosCreado(entityId, usuarioID, nombres, pais, direccionCompletaID, nomenclatura)).apply();
+        subscribe(new AdministradorGeneralEventChange(this));
+    }
 
     public AdministradorGeneral(AdministradorGeneralID entityId) {
         super(entityId);
         appendChange(new AdministradorGeneralCreado(entityId)).apply();
         subscribe(new AdministradorGeneralEventChange(this));
     }
-
-    public AdministradorGeneral(AdministradorGeneralID entityId, Usuario usuario,
-                                UsuarioID usuarioID, DireccionCompletaID direccionCompletaID,
-                                Pais pais) {
-        this(entityId);
-        this.usuario = usuario;
-        this.usuarioID = usuarioID;
-        this.direccionCompletaID = direccionCompletaID;
-        this.pais = pais;
-
-
-    }
-
 
 
     public static AdministradorGeneral from(AdministradorGeneralID entityId, List<DomainEvent> events){
@@ -46,9 +48,9 @@ public class AdministradorGeneral extends AggregateEvent<AdministradorGeneralID>
     }
 
 
+    // Agregar
 
-
-
-
-
+    public Usuario usuario() {
+        return usuario;
+    }
 }

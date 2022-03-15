@@ -13,8 +13,8 @@ public class CrearAdministradorGeneralArgumentosUseCase extends UseCase<RequestC
     public void executeUseCase(RequestCommand<CrearAdministradoGeneralArgumentos> input) {
         var command = input.getCommand();
 
-        var administradorGeneral= new AdministradorGeneral(command.getAdministradorGeneralID(), command.getUsuario(),
-                command.getUsuarioID(), command.getDireccionCompletaID(), command.getPais());
+        var administradorGeneral= new AdministradorGeneral(command.administradorGeneralID(), command.usuarioID(), command.nombres(), command.pais(),
+                command.direccionCompletaID(), command.nomenclatura());
 
         emit().onResponse(new ResponseEvents(administradorGeneral.getUncommittedChanges()));
     }

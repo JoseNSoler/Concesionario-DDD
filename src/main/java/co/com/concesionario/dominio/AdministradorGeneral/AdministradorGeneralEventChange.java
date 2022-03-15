@@ -12,7 +12,11 @@ public class AdministradorGeneralEventChange extends EventChange {
         });
 
         apply((AdministradorGeneralArgumentosCreado event) -> {
-
+            System.out.println(String.format("%s %s %s", event.usuarioID(),
+                    event.pais().value(), event.nombres().value().primerosNombres()));
+            administradorGeneral.usuario = new Usuario( event.usuarioID(), event.nombres(),
+                                                        event.pais());
+            administradorGeneral.dirrecionCompleta = new DirrecionCompleta(event.direccionCompletaID(), event.nomenclatura());
         });
     }
 }

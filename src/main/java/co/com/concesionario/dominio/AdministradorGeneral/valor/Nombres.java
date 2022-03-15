@@ -8,13 +8,13 @@ public class Nombres implements ValueObject<Nombres.Props> {
     private String primerosNombres;
     private String apellidos;
 
-    public Nombres(String primerosNombres, String apellido) {
+    public Nombres(String primerosNombres, String apellidos) {
         this.primerosNombres = primerosNombres;
         this.apellidos = apellidos;
     }
 
-    public static Nombres of(String primerosNombres, String apellido){
-        return new Nombres(primerosNombres, apellido);
+    public static Nombres of(String primerosNombres, String apellidos){
+        return new Nombres(primerosNombres, apellidos);
     }
 
     @Override
@@ -23,12 +23,12 @@ public class Nombres implements ValueObject<Nombres.Props> {
 
             @Override
             public String primerosNombres() {
-                return null;
+                return primerosNombres;
             }
 
             @Override
             public String apellidos() {
-                return null;
+                return apellidos;
             }
         };
     }
