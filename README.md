@@ -41,10 +41,13 @@ https://youtu.be/avMvm36nq3M
 
 ## Usos de casos implementados
 
-- Crear administrador general
-- Crear administrador general con varios argumentos
-- Crear Catalogo repuestos
-- Crear Catalogo carros
-- Crear repuestos prooveedor
-- Crear varios repuestos prooveedor y poblar con varios argumentos
-- Modificar rerepuestos prooveedor por referencia
+
+- Agregar Repuestos Proveedor Adicionales
+- Crear Administrador General con Argumentos
+- Crear Administrador General
+- Crear Catalogo Carros
+- CrearCatalogoRepuestos
+- CrearRepuestosLocal
+- CrearRepuestosProveedor
+- CrearVariosAdicionalesRepuestosProveedor
+- ModificarRepuestosProveedorAdicionalesPorReferencia
