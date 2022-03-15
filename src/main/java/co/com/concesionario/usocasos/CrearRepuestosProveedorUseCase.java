@@ -15,7 +15,7 @@ public class CrearRepuestosProveedorUseCase extends UseCase<RequestCommand<Crear
 
         System.out.println(catalogoRepuestos.repuestosProveedor());
 
-        catalogoRepuestos.crearRepuestosProveedor(command.getRepuestoProveedorID(), command.getCatalogoRepuestosID());
+        catalogoRepuestos.crearRepuestosProveedor(command.getRepuestoProveedorID(), command.getCatalogoRepuestosID(), command.repuestosProveedorAdicionales());
 
         emit().onResponse(new ResponseEvents(catalogoRepuestos.getUncommittedChanges()));
 

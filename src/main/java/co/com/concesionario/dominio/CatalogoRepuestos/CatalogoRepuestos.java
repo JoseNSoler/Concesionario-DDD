@@ -1,9 +1,7 @@
 package co.com.concesionario.dominio.CatalogoRepuestos;
 
 import co.com.concesionario.dominio.CatalogoRepuestos.eventos.*;
-import co.com.concesionario.dominio.CatalogoRepuestos.valor.CatalogoRepuestosID;
-import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestoProveedorID;
-import co.com.concesionario.dominio.CatalogoRepuestos.valor.RepuestosProveedorAdicionales;
+import co.com.concesionario.dominio.CatalogoRepuestos.valor.*;
 import co.com.concesionario.valorglobal.Referencia;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -13,6 +11,7 @@ import java.util.Map;
 
 public class CatalogoRepuestos extends AggregateEvent<CatalogoRepuestosID> {
     protected RepuestosProveedor repuestosProveedor;
+    protected RepuestosLocal repuestosLocal;
     
 
     public CatalogoRepuestos(CatalogoRepuestosID catalogoRepuestosID){
@@ -28,9 +27,19 @@ public class CatalogoRepuestos extends AggregateEvent<CatalogoRepuestosID> {
     }
 
 
-    public void crearRepuestosProveedor(RepuestoProveedorID repuestoProveedorID, CatalogoRepuestosID catalogoRepuestosID){
-        appendChange(new RepuestosProveedorCreado(repuestoProveedorID, catalogoRepuestosID)).apply();
+    public void crearRepuestosProveedor(RepuestoProveedorID repuestoProveedorID, CatalogoRepuestosID catalogoRepuestosID,
+                                        Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales){
+        appendChange(new RepuestosProveedorCreado(repuestoProveedorID, catalogoRepuestosID,  repuestosProveedorAdicionales)).apply();
     }
+
+
+    public void crearRepuestosLocal(RepuestoLocalID repuestolocalID, CatalogoRepuestosID catalogoRepuestosID,
+                                    Map<Referencia, RepuestosLocalAdicionales> repuestosLocalAdicionales){
+        appendChange(new RepuestoLocalCreado(repuestolocalID, catalogoRepuestosID,  repuestosLocalAdicionales)).apply();
+    }
+
+
+
 
     public void agregarRepuestosProveedorAdicionales(CatalogoRepuestosID catalogoRepuestosID, RepuestosProveedorAdicionales repuestosProveedorAdicionales,
                                                      RepuestoProveedorID repuestoProveedorID, Referencia referencia){

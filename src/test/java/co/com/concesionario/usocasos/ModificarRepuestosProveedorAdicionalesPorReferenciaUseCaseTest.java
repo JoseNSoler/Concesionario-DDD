@@ -57,16 +57,15 @@ class ModificarRepuestosProveedorAdicionalesPorReferenciaUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
+        var event0 = (CatalogoRepuestosCreado) events.get(0);
         var event = (RepuestosProveedorAdicionalesPorReferenciaModificados) events.get(1);
 
-        Assertions.assertEquals("partesExternasPrimera", "aaa"
-                //event2.getMapRepuestosProveedorAdicionales().get(referencia3).value().value().partesExternas()
-                );
 
-        /*
-        Assertions.assertEquals("1Catalogo", event.getCatalogoRepuestosID().value());
-        Assertions.assertEquals("1_1ProveedorRepuestoCC", event.getRepuestoProveedorID().value());
-        */
+
+
+        Assertions.assertEquals("estas sonsa as", event.getRepuestosProveedorAdicionales().value().value().partesExternas());
+                //event2.getMapRepuestosProveedorAdicionales().get(referencia3).value().value().partesExternas()
+
 
     }
 
@@ -79,12 +78,7 @@ class ModificarRepuestosProveedorAdicionalesPorReferenciaUseCaseTest {
 
         return List.of(
                 new CatalogoRepuestosCreado(CatalogoRepuestosID.of("1Catologo")),
-                new VariosAdicionalesRepuestosProveedorCreados(RepuestoProveedorID.of("1_1ProveedorRepuestoCC"), CatalogoRepuestosID.of("1Catologo"),
-                        mapaRepuestosProveedorAdicional ),
-                new RepuestosProveedorAdicionalesPorReferenciaModificados(CatalogoRepuestosID.of("1Catologo"),
-                        RepuestosProveedorAdicionales.of(Adicionales.of("partesExternasPrimera", "LLantasPrimeras")),
-                        RepuestoProveedorID.of("1_1ProveedorRepuestoCC"), Referencia.of("2024"))
-
+                new RepuestosProveedorCreado(RepuestoProveedorID.of("1_1ProveedorRepuestoCC"), CatalogoRepuestosID.of("1Catalogo"), mapaRepuestosProveedorAdicional)
         );
 
     }

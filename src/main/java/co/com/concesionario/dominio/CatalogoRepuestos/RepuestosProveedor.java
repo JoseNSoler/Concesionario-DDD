@@ -22,20 +22,16 @@ public class RepuestosProveedor extends Entity<RepuestoProveedorID>{
 
 
     public RepuestosProveedor(RepuestoProveedorID entityId, Map<Referencia, RepuestosProveedorAdicionales> repuestosProveedorAdicionales) {
-        super(entityId);
+        this(entityId);
         //TODO Auto-generated constructor stub
-
         this.repuestosProveedorAdicionales = repuestosProveedorAdicionales;
-        this.repuestosProveedorTecnomecanicos = new ArrayList<>();
+
     }
 
 
     public RepuestosProveedor(RepuestoProveedorID entityId) {
         super(entityId);
         //TODO Auto-generated constructor stub
-
-        this.repuestosProveedorAdicionales = new HashMap<Referencia, RepuestosProveedorAdicionales>();
-        this.repuestosProveedorTecnomecanicos = new ArrayList<>();
     }
 
 
