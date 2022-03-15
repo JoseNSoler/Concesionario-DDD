@@ -35,10 +35,12 @@ class CrearCatalogoCarrosUseCaseTest {
                 .getDomainEvents();
         // Assert
 
-        var event = (CatalogoCarrosCreado) events
-                ;
+        var event = (CatalogoCarrosCreado) events.get(0);
+
         Assertions.assertEquals("catalogocarros.catalogocarroscreado", event.type);
 
         Assertions.assertEquals("CatalogoCarros", event.getCatalogoCarrosID().value());
+
+
     }
 }

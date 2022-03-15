@@ -1,5 +1,6 @@
 package co.com.concesionario.dominio.CatalogoCarros;
 
+import co.com.concesionario.dominio.CatalogoCarros.eventos.CatalogoCarrosCreado;
 import co.com.concesionario.dominio.CatalogoCarros.valor.CatalogoCarrosID;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -13,6 +14,8 @@ public class CatalogoCarros extends AggregateEvent<CatalogoCarrosID> {
     public CatalogoCarros(CatalogoCarrosID entityId) {
         super(entityId);
         this.carrosProveedor = new ArrayList<>();
+        appendChange(new CatalogoCarrosCreado(entityId)).apply();
+        subscribe(new CatalogoCarrosEventChange(this));
     }
 
     public List<CarroProveedor> getCarrosProveedor() {
