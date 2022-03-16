@@ -1,4 +1,5 @@
-# Concesionario de autos BMW - Planteacion modelo de negocio usando DDD (Domain Driven Design) / Con video explicativo en youtube - **Creando actualmente mas metodos con sus test
+# Concesionario de autos BMW - Planteacion modelo de negocio usando DDD (Domain Driven Design) / Con video explicativo en youtube
+
 
 <p align="center">
 <img src="https://www.sofka.com.co/wp-content/uploads/2021/02/sofkau-logo-horizontal.png">
@@ -19,9 +20,12 @@ esta propuesta para un concesionario de autos marca BMW
 
 https://youtu.be/avMvm36nq3M
 
+*El Diagrama UML en el video esta desactualizado, faltandole 2 entidades, las cuales estan implementadas en codigo e incluidas en la imagen mas adelante de este README*
+
 #escripcion General
 
 **Se puede guardar la imagen o abrirla en una nueva pestaña para poder verla en mejor resolucion**
+
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/59320487/158148274-c09038d6-48b7-45ea-9a1f-6060eceb8a36.png"
@@ -35,7 +39,7 @@ https://youtu.be/avMvm36nq3M
 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/59320487/158148335-bb0e30ba-cbbc-4d3a-9beb-c20aff7e451a.png"
+  <img src="https://user-images.githubusercontent.com/59320487/158521641-41dff76b-3d56-41c0-b0d6-2e7b4dc3f4de.png"
 </p>   
 
 
