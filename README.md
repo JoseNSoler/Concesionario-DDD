@@ -50,8 +50,11 @@ https://youtu.be/avMvm36nq3M
 - Crear Administrador General con Argumentos
 - Crear Administrador General
 - Crear Catalogo Carros
+- Crear Catalogo Carros Local
+- Crear Catalogo Carros Proveedor
 - CrearCatalogoRepuestos
 - CrearRepuestosLocal
 - CrearRepuestosProveedor
 - CrearVariosAdicionalesRepuestosProveedor
 - ModificarRepuestosProveedorAdicionalesPorReferencia
+- 
