@@ -17,6 +17,10 @@ public class Tecnomecanicos implements ValueObject<Tecnomecanicos.Props>{
         this.motor = motor;
     }
 
+    public static Tecnomecanicos of(String llantas, String suspension, String transmision, String motor) {
+        return new Tecnomecanicos(llantas, suspension, transmision, motor);
+    }
+
 
     // Implementacion para varios valores por medio de un objeto propiedades
     @Override

@@ -66,18 +66,18 @@ class CrearRepuestosLocalUseCaseTest {
 
         // Assert
 
-        var event = (RepuestosProveedorCreado) events.get(1);
+        var event = (RepuestoLocalCreado) events.get(1);
 
-        Assertions.assertEquals("catalogorepuestos.repuestosproveedorcreado", event.type);
+        Assertions.assertEquals("catalogorepuestos.repuestoslocalcreado", event.type);
 
         Assertions.assertEquals("1Catalogo", event.catalogoRepuestosID().value());
-        Assertions.assertEquals("1_1ProveedorRepuestoCC", event.repuestoProveedorID().value());
+        Assertions.assertEquals("1_1LocalRepuestoCC", event.repuestoLocalID().value());
 
 
-        Assertions.assertEquals(3, event.repuestosProveedorAdicionales().size());
+        Assertions.assertEquals(3, event.repuestosLocalAdicionales().size());
 
-        Assertions.assertEquals("partesExternasPrimera",event.repuestosProveedorAdicionales());
-        Assertions.assertEquals("LLantasTercera",event.repuestosProveedorAdicionales().get(ref3).value().value().llantasModificadas());
+        Assertions.assertEquals("LOCAL partes externas prim",event.repuestosLocalAdicionales().get(ref1).value().value().partesExternas());
+        Assertions.assertEquals("LOCAL LLantasTercera",event.repuestosLocalAdicionales().get(ref3).value().value().llantasModificadas());
 
 
     }

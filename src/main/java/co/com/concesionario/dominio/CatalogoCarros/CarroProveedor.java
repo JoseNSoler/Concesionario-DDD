@@ -13,11 +13,9 @@ public class CarroProveedor extends Entity<CarrosProveedorID> {
 
 
     // Constructores
-    public CarroProveedor(CarrosProveedorID entityId, FichaTecnicaCarroProveedor fichaTecnicaCarroProveedor,
-                          Kilometraje kilometraje) {
-        super(entityId);
+    public CarroProveedor(CarrosProveedorID entityId, FichaTecnicaCarroProveedor fichaTecnicaCarroProveedor) {
+        this(entityId);
         this.fichaTecnicaCarroProveedor = fichaTecnicaCarroProveedor;
-        this.kilometraje = kilometraje;
     }
 
     public CarroProveedor(CarrosProveedorID entityId){

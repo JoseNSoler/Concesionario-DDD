@@ -20,6 +20,10 @@ public class FichaTecnicaCarroProveedor implements ValueObject<FichaTecnicaCarro
         this.referencia = referencia;
     }
 
+    public static FichaTecnicaCarroProveedor of(Adicionales adicionales, Tecnomecanicos tecnomecanicos, Referencia referencia) {
+        return new FichaTecnicaCarroProveedor(adicionales, tecnomecanicos, referencia);
+    }
+
     @Override
     public Props value() {
         // TODO Auto-generated method stub

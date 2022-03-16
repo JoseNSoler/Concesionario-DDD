@@ -18,6 +18,10 @@ public class FichaTecnicaCarroLocal implements ValueObject<FichaTecnicaCarroLoca
         this.referencia = referencia;
     }
 
+    public static FichaTecnicaCarroLocal of(Adicionales adicionales, Tecnomecanicos tecnomecanicos, Referencia referencia) {
+        return new FichaTecnicaCarroLocal(adicionales, tecnomecanicos, referencia);
+    }
+
     @Override
     public FichaTecnicaCarroLocal.Props value() {
         // TODO Auto-generated method stub

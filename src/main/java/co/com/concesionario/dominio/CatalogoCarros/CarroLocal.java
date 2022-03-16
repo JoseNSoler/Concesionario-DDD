@@ -13,11 +13,9 @@ public class CarroLocal extends Entity<CarrosLocalID> {
 
 
     // Constructores
-    public CarroLocal(CarrosLocalID entityId, FichaTecnicaCarroLocal fichaTecnicaCarroLocal,
-                          Kilometraje kilometraje) {
-        super(entityId);
+    public CarroLocal(CarrosLocalID entityId, FichaTecnicaCarroLocal fichaTecnicaCarroLocal) {
+        this(entityId);
         this.fichaTecnicaCarroLocal = fichaTecnicaCarroLocal;
-        this.kilometraje = kilometraje;
     }
 
     public CarroLocal(CarrosLocalID entityId){
